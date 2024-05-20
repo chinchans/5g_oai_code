@@ -1367,10 +1367,10 @@ void config_security(gNB_RRC_INST *rrc)
     LOG_W(RRC, "configuration file does not contain a \"security\" section, applying default parameters (nia2 nea0, integrity disabled for DRBs)\n");
     rrc->security.ciphering_algorithms[0]    = 0;  /* nea0 = no ciphering */
     rrc->security.ciphering_algorithms_count = 1;
-    rrc->security.integrity_algorithms[0]    = 2;  /* nia2 */
-    rrc->security.integrity_algorithms[1]    = 0;  /* nia0 = no integrity, as a fallback (but nia2 should be supported by all UEs) */
-    rrc->security.integrity_algorithms_count = 2;
-    rrc->security.do_drb_ciphering           = 1;  /* even if nea0 let's activate so that we don't generate cipheringDisabled in pdcp_Config */
+    rrc->security.integrity_algorithms[0]    = NULL;  /* nia2 */
+    rrc->security.integrity_algorithms[1]    = NULL;  /* nia0 = no integrity, as a fallback (but nia2 should be supported by all UEs) */
+    rrc->security.integrity_algorithms_count = NULL;
+    rrc->security.do_drb_ciphering           = NULL;  /* even if nea0 let's activate so that we don't generate cipheringDisabled in pdcp_Config */
     rrc->security.do_drb_integrity           = 0;
     return;
   }
